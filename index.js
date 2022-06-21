@@ -59,7 +59,6 @@ function removeTask(e){
 e.target.parentElement.parentElement.remove();
   }
 
-
 }
 
 
@@ -75,20 +74,18 @@ function clearTasks(e){
 
 }
 
-
-// Filter Tasks
+// Filter Function 
 function filterTasks(e){
-  const text = e.target.value.toLowerCase(); //
-  document.querySelectorAll('.collection-item').forEach(
+  const text= e.target.value.tolowercase(); 
+  document.querySelectAll('.collection-item').forEach(
     function(task) {
       const item = task.firstChild.textContent;
-      if(item.toLowerCase().indexOf(text) !== -1) {
-task.style.display= 'block';
+      if(item.tolowercase().indexOf(text) !== -1) {
+        task.style.display= 'block';
       }else{
         task.style.display= 'none';
       }
     }
   )
 }
-
 
