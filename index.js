@@ -26,6 +26,7 @@ function getTasks() {
     // Local storge stor just string , WE use JSON.parse
     tasks = JSON.parse(localStorage.getItem('tasks'));
   }
+  
   tasks.forEach(function(task){
     const li = document.createElement('li');
     // Add cleass
@@ -81,7 +82,7 @@ function addTask(e){
 taskList.appendChild(li);
 // console.log(li)
 
-// Store in JS
+// Store in lS
 storeTaskInLocalStorage(taskInput.value);
 
 // clear input 
@@ -91,7 +92,7 @@ taskInput.value = '';
   e.preventDefault();
 }
 
-// Store Task 
+// Store Task to LS
 function storeTaskInLocalStorage(task) {
   let tasks; 
   if (localStorage.getItem('tasks') == null) {
@@ -155,11 +156,11 @@ function clearTasksFromLocalStorge() {
 
 // Filter Function 
 function filterTasks(e){
-  const text= e.target.value.tolowercase(); 
-  document.querySelectAll('.collection-item').forEach(
+  const text= e.target.value.toLowerCase(); 
+  document.querySelectorAll('.collection-item').forEach(
     function(task) {
       const item = task.firstChild.textContent;
-      if(item.tolowercase().indexOf(text) !== -1) {
+      if(item.toLowerCase().indexOf(text) !== -1) {
         task.style.display= 'block';
       }else{
         task.style.display= 'none';
